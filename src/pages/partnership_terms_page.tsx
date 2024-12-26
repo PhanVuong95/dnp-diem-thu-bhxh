@@ -6,6 +6,7 @@ import Modal from 'react-modal';
 import { BASE_URL } from "../utils/constants";
 import axios from "axios";
 import { toast } from "react-toastify";
+import AuthorizeAccount from "./auth/authorize";
 
 
 const PartnerTermsPage = () => {
@@ -98,7 +99,7 @@ const PartnerTermsPage = () => {
         isHome={false}
         title="Điều khoản đối tác"
       />
-
+      <AuthorizeAccount />
       <Page className="page mt-20">
         <div className="rounded-lg no-scrollbar bg-white p-4 text-justify overflow-scroll" style={{ height: '70vh' }}>
           <p className="text-center"><strong>Điều khoản &amp; Điều kiện </strong>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import HeaderBase from "../components/header_base";
+import AuthorizeAccount from "./auth/authorize";
 
 const HistoryPage: React.FunctionComponent = (props) => {
   const navigate = useNavigate();
@@ -9,8 +10,9 @@ const HistoryPage: React.FunctionComponent = (props) => {
       <HeaderBase
         isHome={false}
         onBack={() => navigate("/")}
-        title={"Nộp BHXH"}
+        title={"DNP Điểm Thu BHXH"}
       />
+      <AuthorizeAccount />
       <div className="bg-white page min-h-[100vh] flex flex-col gap-4 !pt-[95px]">
         <Link to="/lists-history">
           <div className="flex flex-row p-4  link-butoon ">

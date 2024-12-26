@@ -64,11 +64,11 @@ const HomePage: React.FunctionComponent = () => {
 
       <div className="banner-top h-full">
         <img src={banner} />
-        <div className="flex justify-between items-center user-home">
+        {/* <div className="flex justify-between items-center user-home">
           {<UserCard user={userProfile?.userInfo} />}
-        </div>
+        </div> */}
       </div>
-      <div className="bg-white flex flex-wrap justify-between items-center category-home gap-y-[24px] px-4 pt-[82px] pb-[20px]">
+      <div className="bg-white flex flex-wrap justify-between items-center category-home gap-y-[24px] px-4 pt-[25px] pb-[20px]">
         <Link to="/social-insurance">
           <div className="flex flex-col justify-center items-center w-[100px] gap-[10px]">
             <div className="icon-category">

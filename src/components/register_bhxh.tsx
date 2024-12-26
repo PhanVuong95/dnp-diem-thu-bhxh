@@ -30,6 +30,7 @@ import lottieScanQR from "../../assets-src/lottie_scan_qr.json";
 import { BASE_URL, BenefitLevevlList } from "../utils/constants";
 import CardMembersHouseHoldBHXH from "./card_members_house_hold_bhxh";
 import { openWebview } from "zmp-sdk";
+import AuthorizeAccount from "../pages/auth/authorize";
 
 dayjs.locale("vi");
 dayjs.extend(customParseFormat);
@@ -4139,6 +4140,7 @@ const RegisterBHXH = (props) => {
   return (
     <>
       <HeaderBase isHome={false} title={"Đăng ký BHXH Tự nguyện"} />
+      <AuthorizeAccount />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className=" flex flex-col gap-4 pt-[85px]"

@@ -15,6 +15,7 @@ import CardHouseHold from "../../components/card_house_hold";
 import CardMembersHouseHold from "../../components/card_members_house_hold";
 import CardObject from "../../components/card_object";
 import { BASE_URL } from "../../utils/constants";
+import AuthorizeAccount from "../auth/authorize";
 
 const RegisterBHYT = ({ }) => {
 
@@ -1142,6 +1143,7 @@ const RegisterBHYT = ({ }) => {
   return (
     <div className="pt-20">
       {renderHeader()}
+      <AuthorizeAccount />
       <div className="page-1 flex flex-col gap-4">
 
 

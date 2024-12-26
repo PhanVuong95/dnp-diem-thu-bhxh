@@ -21,7 +21,7 @@ import { SpecificProvider } from "./specific_context";
 import RegisterBHYT from "../pages/BHYT/register_bhyt";
 import ListHistoryBHYT from "../pages/BHYT/list_history_bhyt";
 import InfoDetailBHYT from "../pages/BHYT/info_detail_bhyt";
-import { ProfileProvider } from "./user_profile_context";
+import { ProfileContext, ProfileProvider } from "./user_profile_context";
 import splash from "../../assets-src/splash.png";
 import { closeLoading } from "zmp-sdk/apis";
 import CheckStatusProcedure from "../pages/check_status_procedure";
@@ -40,7 +40,6 @@ import BankInfoPage from "../pages/bank_info";
 import ReportPartnerPage from "../pages/report_partner_page";
 import ListCollabrorates from "../pages/list_collabrorate_page";
 import ProfileCollaborateDetailPage from "../pages/profile_collaborate_detail_page";
-import ScrollToTop from "../utils/hock";
 import ToolSupportPage from "../pages/tool_support_page";
 import WithdrawBHXH from "./withdraw_bhxh";
 import CloseRateBXH from "./close_rate_bhxh";
@@ -87,213 +86,219 @@ const MyApp = () => {
             <SnackbarProvider>
               <ZMPRouter>
                 <Routes>
-                  <Route path="/" element={<LayoutPage key="layout" />}>
+                  <Route path="/" element={
+                    <ProfileProvider>
+                      <LayoutPage key="layout" />
+                    </ProfileProvider>
+                  }>
                     <Route index element={<HomePage />} />
                     <Route path="partner" element={<PartnerPage />} />
                     <Route path="history" element={<HistoryPage />} />
                     <Route path="user" element={<UserPage />} />
+
+
+                    <Route
+                      path="/social-insurance"
+                      element={
+                        <SpecificProvider>
+                          <ListSocialInsurance />
+                        </SpecificProvider>
+                      }
+                    />
+
+                    <Route
+                      path="/health-insurance"
+                      element={<ListHealthInsurance />}
+                    />
+
+                    <Route
+                      path="/product-detail/:id"
+                      element={
+                        <SpecificProvider>
+                          <ProductDetailPage />
+                        </SpecificProvider>
+                      }
+                    />
+
+                    <Route
+                      path="/product-detail-1/:id"
+                      element={<ProductDetailPage1 />}
+                    />
+
+                    <Route
+                      path="/privacy_policy/"
+                      element={<PrivacyPolicyPage />}
+                    />
+
+                    <Route
+                      path="/buill-pay/:id"
+                      element={
+                        <SpecificProvider>
+                          <BillPayPage w={""} h={""} url={""} />
+                        </SpecificProvider>
+                      }
+                    />
+
+                    <Route
+                      path="/bill-pay-bhyt/:id"
+                      element={<BillPayBHYTPage />}
+                    />
+
+                    <Route
+                      path="/buill-detail/:id"
+                      element={
+                        <SpecificProvider>
+                          <BuillDetailPage />
+                        </SpecificProvider>
+                      }
+                    />
+
+                    <Route
+                      path="/register-BHXH"
+                      element={
+                        <SpecificProvider>
+                          <RegisterBHXH />
+                        </SpecificProvider>
+                      }
+                    />
+
+                    <Route path="/register-BHYT/"
+                      element={<RegisterBHYT />} />
+
+                    <Route
+                      path="/lists-history"
+                      element={<ListsHistoryPage w={""} h={""} url={""} />}
+                    />
+
+                    <Route
+                      path="/info-detail-bhyt/:id/:statusName"
+                      element={<InfoDetailBHYT />}
+                    />
+
+                    <Route
+                      path="/list-history-bhyt"
+                      element={<ListHistoryBHYT />}
+                    />
+
+                    <Route
+                      path="/check-status-procedure/:id"
+                      element={<CheckStatusProcedure />}
+                    />
+
+
+                    <Route
+                      path="/history-unpaid/:id/:statusName"
+                      element={
+                        <SpecificProvider>
+                          <HistoryUnpaidPage />
+                        </SpecificProvider>
+                      }
+                    />
+
+                    {/* Tra cứu bảo hiểm xã hội  */}
+                    <Route path="/luckup-bhxh"
+                      element={<LuckUpBHXH />} />
+
+                    {/* Login web  */}
+                    <Route
+                      path="/login/portal"
+                      element={<LoginPortalPage />}
+                    />
+
+                    {/* Chi tiết thông tin tài khoản */}
+                    <Route
+                      path="/user-detail"
+                      element={<ProfileDetailPage />}
+                    />
+
+                    {/* Tài liệu hướng đẫn*/}
+                    <Route
+                      path="/guide"
+                      element={<GuidePage />}
+                    />
+
+                    {/* Điều kiện và điều khoản sử dụng dịch vụ */}
+                    <Route
+                      path="/policy-terms"
+                      element={<PolicyTermPage />}
+                    />
+
+                    {/* Điều khoản đối tác */}
+                    <Route
+                      path="/partnership-terms"
+                      element={<PartnerTermsPage />}
+                    />
+
+                    {/* Đăng ký công tác viên */}
+                    <Route
+                      path="/register-collaborate"
+                      element={<RegisterCollaborate />}
+                    />
+
+                    {/* Thông tin giới thiệu đối tác */}
+                    <Route
+                      path="/introducing-partners"
+                      element={<IntroducingPartnersPage />}
+                    />
+
+
+                    {/* Thông tin giới thiệu đối tác */}
+                    <Route
+                      path="/profile-partner-detail"
+                      element={<ProfilePartnerDetailPage />}
+                    />
+
+                    {/* Thông tin ngân hàng */}
+                    <Route
+                      path="/bank-info"
+                      element={<BankInfoPage />}
+                    />
+
+                    {/* Báo cáo thống kê */}
+                    <Route
+                      path="/report-partner"
+                      element={<ReportPartnerPage />}
+                    />
+
+                    {/* Danh sách cộng tác viên*/}
+                    <Route
+                      path="/list-collabrorate"
+                      element={<ListCollabrorates />}
+                    />
+
+                    {/* Danh sách cộng tác viên*/}
+                    <Route
+                      path="/profile-collaborate-detail/:id"
+                      element={<ProfileCollaborateDetailPage />}
+                    />
+
+                    <Route
+                      path="/tool-support"
+                      element={<ToolSupportPage />}
+                    />
+
+                    {/* Tính toán lương hưu */}
+                    <Route
+                      path="/pension-calculation"
+                      element={<PensionCalculation />}
+                    />
+
+                    {/* Rút BHXH một lần */}
+                    <Route
+                      path="/withdraw-bhxh"
+                      element={<WithdrawBHXH />}
+                    />
+
+                    {/* Mức đóng BHXH còn thiếu */}
+                    <Route
+                      path="/close-rate-bhxh"
+                      element={<CloseRateBXH />}
+                    />
+
+                    {/* Chi tiết tin tức */}
+                    <Route path="new-detail/:id" element={<CardNewDetailPage />} />
                   </Route>
 
-                  <Route
-                    path="/social-insurance"
-                    element={
-                      <SpecificProvider>
-                        <ListSocialInsurance />
-                      </SpecificProvider>
-                    }
-                  />
-
-                  <Route
-                    path="/health-insurance"
-                    element={<ListHealthInsurance />}
-                  />
-
-                  <Route
-                    path="/product-detail/:id"
-                    element={
-                      <SpecificProvider>
-                        <ProductDetailPage />
-                      </SpecificProvider>
-                    }
-                  />
-
-                  <Route
-                    path="/product-detail-1/:id"
-                    element={<ProductDetailPage1 />}
-                  />
-
-                  <Route
-                    path="/privacy_policy/"
-                    element={<PrivacyPolicyPage />}
-                  />
-
-                  <Route
-                    path="/buill-pay/:id"
-                    element={
-                      <SpecificProvider>
-                        <BillPayPage w={""} h={""} url={""} />
-                      </SpecificProvider>
-                    }
-                  />
-
-                  <Route
-                    path="/bill-pay-bhyt/:id"
-                    element={<BillPayBHYTPage />}
-                  />
-
-                  <Route
-                    path="/buill-detail/:id"
-                    element={
-                      <SpecificProvider>
-                        <BuillDetailPage />
-                      </SpecificProvider>
-                    }
-                  />
-
-                  <Route
-                    path="/register-BHXH"
-                    element={
-                      <SpecificProvider>
-                        <RegisterBHXH />
-                      </SpecificProvider>
-                    }
-                  />
-
-                  <Route path="/register-BHYT/"
-                    element={<RegisterBHYT />} />
-
-                  <Route
-                    path="/lists-history"
-                    element={<ListsHistoryPage w={""} h={""} url={""} />}
-                  />
-
-                  <Route
-                    path="/info-detail-bhyt/:id/:statusName"
-                    element={<InfoDetailBHYT />}
-                  />
-
-                  <Route
-                    path="/list-history-bhyt"
-                    element={<ListHistoryBHYT />}
-                  />
-
-                  <Route
-                    path="/check-status-procedure/:id"
-                    element={<CheckStatusProcedure />}
-                  />
-
-
-                  <Route
-                    path="/history-unpaid/:id/:statusName"
-                    element={
-                      <SpecificProvider>
-                        <HistoryUnpaidPage />
-                      </SpecificProvider>
-                    }
-                  />
-
-                  {/* Tra cứu bảo hiểm xã hội  */}
-                  <Route path="/luckup-bhxh"
-                    element={<LuckUpBHXH />} />
-
-                  {/* Login web  */}
-                  <Route
-                    path="/login/portal"
-                    element={<LoginPortalPage />}
-                  />
-
-                  {/* Chi tiết thông tin tài khoản */}
-                  <Route
-                    path="/user-detail"
-                    element={<ProfileDetailPage />}
-                  />
-
-                  {/* Tài liệu hướng đẫn*/}
-                  <Route
-                    path="/guide"
-                    element={<GuidePage />}
-                  />
-
-                  {/* Điều kiện và điều khoản sử dụng dịch vụ */}
-                  <Route
-                    path="/policy-terms"
-                    element={<PolicyTermPage />}
-                  />
-
-                  {/* Điều khoản đối tác */}
-                  <Route
-                    path="/partnership-terms"
-                    element={<PartnerTermsPage />}
-                  />
-
-                  {/* Đăng ký công tác viên */}
-                  <Route
-                    path="/register-collaborate"
-                    element={<RegisterCollaborate />}
-                  />
-
-                  {/* Thông tin giới thiệu đối tác */}
-                  <Route
-                    path="/introducing-partners"
-                    element={<IntroducingPartnersPage />}
-                  />
-
-
-                  {/* Thông tin giới thiệu đối tác */}
-                  <Route
-                    path="/profile-partner-detail"
-                    element={<ProfilePartnerDetailPage />}
-                  />
-
-                  {/* Thông tin ngân hàng */}
-                  <Route
-                    path="/bank-info"
-                    element={<BankInfoPage />}
-                  />
-
-                  {/* Báo cáo thống kê */}
-                  <Route
-                    path="/report-partner"
-                    element={<ReportPartnerPage />}
-                  />
-
-                  {/* Danh sách cộng tác viên*/}
-                  <Route
-                    path="/list-collabrorate"
-                    element={<ListCollabrorates />}
-                  />
-
-                  {/* Danh sách cộng tác viên*/}
-                  <Route
-                    path="/profile-collaborate-detail/:id"
-                    element={<ProfileCollaborateDetailPage />}
-                  />
-
-                  <Route
-                    path="/tool-support"
-                    element={<ToolSupportPage />}
-                  />
-
-                  {/* Tính toán lương hưu */}
-                  <Route
-                    path="/pension-calculation"
-                    element={<PensionCalculation />}
-                  />
-
-                  {/* Rút BHXH một lần */}
-                  <Route
-                    path="/withdraw-bhxh"
-                    element={<WithdrawBHXH />}
-                  />
-
-                  {/* Mức đóng BHXH còn thiếu */}
-                  <Route
-                    path="/close-rate-bhxh"
-                    element={<CloseRateBXH />}
-                  />
-
-                  {/* Chi tiết tin tức */}
-                  <Route path="new-detail/:id" element={<CardNewDetailPage />} />
                 </Routes>
               </ZMPRouter>
             </SnackbarProvider>

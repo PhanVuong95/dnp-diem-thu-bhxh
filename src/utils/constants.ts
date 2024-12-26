@@ -1,5 +1,4 @@
-// export const BASE_URL = "https://dev-baohiem.dion.vn"
-export const BASE_URL = "https://baohiem.dion.vn"
+export const BASE_URL = "https://portal-bhxh.dnpgroup.com.vn"
 
 export const listEthnics = [
 

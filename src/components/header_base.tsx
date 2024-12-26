@@ -31,7 +31,7 @@ const HeaderBase = (props: Props) => {
             )}
           </div>
           <div className="text-[#ffffff] items-center ml-3 font-medium text-lg line-clamp-1">
-            {isHome ? "Nộp BHXH" : title}
+            {isHome ? "DNP Điểm Thu BHXH" : title}
           </div>
         </div>
       </div>

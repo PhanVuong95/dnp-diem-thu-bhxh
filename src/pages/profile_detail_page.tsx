@@ -1,71 +1,72 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeaderBase from "../components/header_base";
 import {
   Avatar,
-  List,
-  Text,
-  Box,
   Page,
 } from "zmp-ui";
-import { ProfileContext } from "../components/user_profile_context";
+import { useProfile, UserProfilePros } from "../components/user_profile_context";
 import logo from '../../assets-src/logo1.png'
 import { getPhoneNumber, getUserInfo } from "zmp-sdk/apis";
 import { getAccessToken } from "zmp-sdk/apis";
 import bg from '../../assets-src/image-bg.png'
+import AuthorizeAccount from "./auth/authorize";
 
 
 const ProfileDetailPage = () => {
-  const profieContext = useContext(ProfileContext);
-  const { userProfile, setUserProfile } = profieContext;
+  const { userProfile, setUserProfile } = useProfile();
   const [phone, setPhone] = useState<String>("");
 
-  getAccessToken({
-    success: (accessToken) => {
-      getPhoneNumber({
-        success: async (data) => {
-          let { token } = data;
-          fetch("https://graph.zalo.me/v2.0/me/info", {
-            method: "GET",
-            headers: {
-              "access_token": `${accessToken}`,
-              "code": `${token}`,
-              "secret_key": "PgycHQUZHfwK8T4shN7Q"
-            }
-          })
-            .then(response => response.json())
-            .then(data => {
-              setPhone(data.data.number)
+  const loadPhone = async () => {
+    getAccessToken({
+      success: (accessToken) => {
+        getPhoneNumber({
+          success: async (data) => {
+            console.log("token", data);
+            let { token } = data;
+            fetch("https://graph.zalo.me/v2.0/me/info", {
+              method: "GET",
+              headers: {
+                "access_token": `${accessToken}`,
+                "code": `${token}`,
+                "secret_key": "V0fd7v8rB0KUS344WF69"
+              }
             })
-            .catch(error => {
-              console.error("Error:", error);
-            });
+              .then(response => response.json())
+              .then(data => {
+                setPhone(data.data.number)
 
-        },
-        fail: (error) => {
-          // Xử lý khi gọi api thất bại
-          console.log(error);
-        }
-      });
+                setUserProfile((user) => {
+                  return {
+                    Username: user?.Username ?? undefined,
+                    fullName: user?.fullName ?? undefined,
+                    photo: user?.photo ?? undefined,
+                    phone: `${data.data.number}`,
+                  };
+                });
 
-      getUserInfo({
-        success: (data) => {
-          // xử lý khi gọi api thành công
-          const { userInfo } = data;
-          console.log(userInfo);
 
-        },
-        fail: (error) => {
-          // xử lý khi gọi api thất bại
-          console.log(error);
-        }
-      });
-    },
-    fail: (error) => {
-      // xử lý khi gọi api thất bại
-      console.log(error);
-    }
-  });
+              })
+              .catch(error => {
+                console.error("Error:", error);
+              });
 
+          },
+          fail: (error) => {
+            // Xử lý khi gọi api thất bại
+            console.log("Get PhoneNumber", error);
+          }
+        });
+      },
+      fail: (error) => {
+        // xử lý khi gọi api thất bại
+        console.log("Get Access", error);
+      }
+    });
+  }
+
+  useEffect(() => {
+    loadPhone()
+  }, [])
 
 
   return (
@@ -74,6 +75,7 @@ const ProfileDetailPage = () => {
         isHome={false}
         title="Thông tin tài khoản"
       />
+      <AuthorizeAccount />
       <Page className=" mt-20">
 
         <div className="relative">
@@ -83,12 +85,12 @@ const ProfileDetailPage = () => {
             <Avatar
               story="default"
               size={70}
-              src={userProfile?.userInfo?.avatar ? userProfile?.userInfo?.avatar : logo}
+              src={userProfile.photo ? userProfile?.photo : logo}
             >
-              {userProfile?.userInfo?.avatar}
+              {userProfile?.photo}
             </Avatar>
 
-            <div className="ml-3 text-[20px] font-bold text-white">{userProfile?.userInfo?.name}</div>
+            <div className="ml-3 text-[20px] font-bold text-white">{userProfile?.fullName}</div>
 
           </div>
         </div>
@@ -97,7 +99,7 @@ const ProfileDetailPage = () => {
 
           <div className="text-[17px] font-normal mt-5 flex">
             <div className="text-[17px] font-normal text-[#797D77]">Điện thoại</div>
-            <div className="ml-4">{phone ? phone : "Chưa rõ"}</div>
+            <div className="ml-4">{userProfile.phone ? userProfile.phone : "Chưa rõ"}</div>
           </div>
 
 
