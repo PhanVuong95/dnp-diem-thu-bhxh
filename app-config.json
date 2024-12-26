@@ -1,0 +1,28 @@
+{
+  "app": {
+    "title": "DNP Điểm Thu BHXH",
+    "headerTitle": "DNP Điểm Thu BHXH",
+    "headerColor": "#286dd9",
+    "textColor": {
+      "light": "white",
+      "dark": "white"
+    },
+    "textAlign": "left",
+    "statusBarColor": {
+      "light": "#286dd9",
+      "dark": "#286dd9"
+    },
+    "leftButton": "back",
+    "statusBar": "transparent",
+    "actionBarHidden": true,
+    "hideAndroidBottomNavigationBar": true,
+    "hideIOSSafeAreaBottom": true,
+    "selfControlLoading": true
+  },
+  "debug": false,
+  "pages": [],
+  "listCSS": [],
+  "listSyncJS": [],
+  "listAsyncJS": [],
+  "template": {}
+}
