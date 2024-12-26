@@ -119,18 +119,11 @@ const ListHistoryBHYT = ({ }) => {
 
 
           <div className="flex flex-col gap-4">
-            {listOrder.length == 0 ? (
-              <div
-                style={{
-                  height: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <div>Không có dữ liệu!</div>
+            {listOrder.length == 0 && (
+              <div className="flex flex-col justify-center text-center items-center h-[600px]">
+                Không có dữ liệu!
               </div>
-            ) : null
+            )
             }
 
             {listOrder?.map((item, index) => {

@@ -101,89 +101,10 @@ const ListSocialInsurance = () => {
     }));
   }, []);
 
-  // useEffect(() => {
-  //   setInsuranceOrder(() => ({
-  //     "id": 0,
-  //     "insuranceId": 1001,
-  //     "accountId": 0,
-  //     "citizenId": 0,
-  //     "photoCitizenFront": "/files/upload/account/1019/74274ef8-2e7f-4373-b704-818ec487058f.jpg",
-  //     "photoCitizenBack": "/files/upload/account/1019/67eacbe2-9129-4c65-8282-1347b6f5af70.jpg",
-  //     "phone": "0828782000",
-  //     "fullName": "Tran Nam",
-  //     "email": "trannam@gmail.com",
-  //     "provinceId": 1418,
-  //     "districtId": 1903,
-  //     "wardId": 4125,
-  //     "finalPrice": 12804000,
-  //     "addressDetail": "số 60",
-  //     "listInsuredPerson": [
-  //       {
-  //         "id": 0,
-  //         "insuranceProvinceId": 1398,
-  //         "socialInsuranceNumber": "1248312321",
-  //         "citizenId": "030200008757",
-  //         "photoCitizenFront": "/files/upload/account/1019/74274ef8-2e7f-4373-b704-818ec487058f.jpg",
-  //         "photoCitizenBack": "/files/upload/account/1019/67eacbe2-9129-4c65-8282-1347b6f5af70.jpg",
-  //         "fullName": "Vũ Văn Tuấn",
-  //         "doB": "07/08/2000",
-  //         "gender": "Nam",
-  //         "supportBudget": 396000,
-  //         "wage": 10000000,
-  //         "monthInsured": 6,
-  //         "provinceId": 1417,
-  //         "districtId": 1996,
-  //         "wardId": 11311,
-  //         "addressDetail": "Quỹ tín dụng",
-  //         "ksXaPhuongMa": 11311,
-  //         "ksQuanHuyenMa": 1996,
-  //         "ksTinhThanhMa": 1417,
-  //         "ksDiaChi": "Bùi xá",
-  //         "ethnicId": 1001,
-  //         "medicalProvinceId": 1398,
-  //         "medicalDistrictId": 0,
-  //         "hospitalId": 4469,
-  //         "vungLuongToiThieuId": 1004,
-  //         "benefitLevel": ""
-  //       }
-  //     ],
-  //     "houseHold": {
-  //       "id": 0,
-  //       "chuHoTen": "",
-  //       "ksProvinceId": 0,
-  //       "ksDistrictId": 0,
-  //       "ksWardId": 0,
-  //       "ksAddressDetail": "",
-  //       "hkAddressDetail": "",
-  //       "soGiayToCaNhan": "",
-  //       "ttProvinceId": 0,
-  //       "ttDistrictId": 0,
-  //       "ttWardId": 0,
-  //       "houseHoldPeoples": [
-  //         {
-  //           "id": 0,
-  //           "name": "",
-  //           "doB": "",
-  //           "gender": "",
-  //           "ethnicId": 0,
-  //           "relationShipId": "",
-  //           "citizenId": "",
-  //           "ksProvinceId": 0,
-  //           "ksDistrictId": 0,
-  //           "ksWardId": 0,
-  //           "ksAddressDetail": ""
-  //         }
-  //       ]
-  //     }
-  //   }));
-  // }, []);
-
-
   return (
-    <div >
+    <div className="pt-20 pb-20" >
       <HeaderBase isHome={false} title={"BHXH tự nguyện"} />
-      <div className="px-4 mt-8 pt-[68px] gap-[16px] py-[24px] flex flex-col ">
-
+      <div className="flex flex-col gap-[16px] px-4 py-[15px]">
         <div className="flex flex-col gap-8">
           <div className="p-4 bg-white w-full rounded-xl flex flex-col gap-4">
             <div className="flex gap-[10px]">
@@ -296,25 +217,6 @@ const ListSocialInsurance = () => {
                 Mua ngay
               </button>
             </div>
-
-            {/* <div className="flex flex-row justify-between items-center my-4 ">
-              <div>
-                <Link
-                  to={"/product-detail/" + 1001}
-                  className="px-[25px] py-3 rounded-full bg-[#DEE7FE] text-[15px] font-medium text-[#0076B7]"
-                >
-                  Xem chi tiết
-                </Link>
-              </div>
-              <div>
-                <Link
-                  to={"/register-BHXH"}
-                  className="px-[25px] py-3 rounded-full bg-[#0076B7] text-[15px] font-medium text-[#fff]"
-                >
-                  Mua ngay
-                </Link>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

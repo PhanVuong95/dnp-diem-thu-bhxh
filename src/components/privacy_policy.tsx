@@ -12,19 +12,11 @@ import image8 from '../../assets-src/dieukhoan/image8.jpg'
 const PrivacyPolicyPage: React.FunctionComponent = (props) => {
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 mb-20">
       <HeaderBase
         isHome={false}
         title={"Chính sách và điều khoản"}
       />
-      {/* <img src={image1} />
-      <img src={image2} />
-      <img src={image3} />
-      <img src={image4} />
-      <img src={image5} />
-      <img src={image6} />
-      <img src={image7} />
-      <img src={image8} /> */}
       <div className="bg-white p-3 ">
         <p className="p1 text-center"><strong>ĐIỀU KHOẢN VÀ ĐIỀU KIỆN DỊCH VỤ DÀNH CHO ĐỐI TÁC/KHÁCH HÀNG</strong></p>
         <p className="p2 mt-2 text-justify">ĐIỀU KHOẢN VÀ ĐIỀU KIỆN DỊCH VỤ DÀNH CHO ĐỐI TÁC/KHÁCH HÀNG [“ĐIỀU KHOẢN VÀ ĐIỀU KIỆN”]</p>

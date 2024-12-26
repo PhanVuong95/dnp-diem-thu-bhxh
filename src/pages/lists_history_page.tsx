@@ -119,15 +119,8 @@ const ListsHistoryPage: React.FC<Widthheight> = ({ url }) => {
 
           <div className="flex flex-col gap-4">
             {listOrder.length == 0 ? (
-              <div
-                style={{
-                  height: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <p>Không có dữ liệu!</p>
+              <div className="flex flex-col justify-center text-center items-center h-[600px]">
+                Không có dữ liệu!
               </div>
             ) : (
               listOrder?.map((item, index) => {
@@ -217,91 +210,6 @@ const ListsHistoryPage: React.FC<Widthheight> = ({ url }) => {
               })
             )}
           </div>
-
-          {/* {openTab === 2 && (
-            <div className="flex flex-col gap-4">
-              {listOrder.length == 0 ? (
-                <div
-                  style={{
-                    height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <p>Không có dữ liệu!</p>
-                </div>
-              ) : (
-                listOrder?.map((item, index) => {
-                  return (
-                    <Link to={"/history-unpaid/" + item.id} key={index}>
-                      <div className="p-4 bg-white w-full rounded-xl flex flex-col gap-4">
-                        <div className="flex gap-[10px]">
-                          <img src={logo} className="w-16 h-16" />
-                          <div className="title-product flex flex-col">
-                            <h3 className="text-[#0076B7] text-lg font-medium">
-                              BH Xã Hội Tự nguyện
-                            </h3>
-                            <p className="text-[#646464] text-sm font-normal">
-                              {item.monthInsured} tháng
-                            </p>
-                            <span className="text-[#0076B7] text-lg font-bold">
-                              {item.finalPrice.toLocaleString("vi-VN")} VND
-                            </span>
-                          </div>
-                        </div>
-
-                        <hr className="border-dashed border-[1px] text-[#DEE7FE] "></hr>
-
-                        <div className="flex flex-col gap-4">
-                          <div className="flex flex-row justify-between w-full">
-                            <div>
-                              <p className="text-[#646464] text-sm font-normal">
-                                Trạng thái
-                              </p>
-                            </div>
-                            <div>
-                              <p
-                                className={`text-[${item.statusColor ? item.statusColor : '#FAAD14'}] text-sm font-semibold max-w-[142px] text-right`}
-                              >
-                                {item.insuranceOrderStatusName}
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="flex flex-row justify-between w-full">
-                            <div>
-                              <p className="text-[#646464] text-sm font-normal">
-                                Ngày đăng ký
-                              </p>
-                            </div>
-                            <div>
-                              <p className="text-[#2E2E2E] text-sm font-semibold max-w-[142px] text-right">
-                                {formatDateTime(item.createdTime)}
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="flex flex-row justify-between w-full">
-                            <div>
-                              <p className="text-[#646464] text-sm font-normal">
-                                Người mua
-                              </p>
-                            </div>
-                            <div>
-                              <p className="text-[#2E2E2E] text-sm font-semibold max-w-[142px] text-right">
-                                {item.fullName}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  );
-                })
-              )}
-            </div>
-          )} */}
         </div>
       </div>
     </>

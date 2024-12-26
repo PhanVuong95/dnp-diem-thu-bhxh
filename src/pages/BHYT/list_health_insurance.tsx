@@ -298,7 +298,7 @@ const ListHealthInsurance: React.FunctionComponent = () => {
   }
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 pb-20">
       <HeaderBase isHome={false} title={"BHYT tự nguyện"} />
       <div className="flex flex-col gap-[16px] px-4 py-[15px]">
 

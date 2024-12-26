@@ -433,13 +433,13 @@ const LuckUpBHXH = () => {
   }
 
   return (
-    <div>
+    <div className="pt-24 pb-24">
       <HeaderBase
         isHome={false}
         title={"Tra cứu BHXH"}
       />
 
-      <div className=" flex flex-col gap-4 pt-[100px] pb-[80px]">
+      <div className=" flex flex-col gap-4 ">
         <div className="p-4 mx-4 bg-white rounded-xl flex flex-col gap-4">
           <h3 className="text-[#0076B7] text-lg font-medium">
             Nhập thông tin
