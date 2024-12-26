@@ -1,16 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Page } from "zmp-ui";
 import HeaderBase from "../components/header_base";
-import avatar from "../../assets-src/image-avatar.png";
 import next from "../../assets-src/image-next.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ScrollToTop from "../utils/hock";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 
 const ListCollabrorates = () => {
-
-  const list = [1, 2, 3, 4, 5];
 
   const [listCollabrorates, setListCollabrorates] = useState([])
 

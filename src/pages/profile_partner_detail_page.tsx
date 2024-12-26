@@ -7,7 +7,6 @@ import logo from '../../assets-src/logo1.png'
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import { toast } from "react-toastify";
 
 const ProfilePartnerDetailPage = () => {
 

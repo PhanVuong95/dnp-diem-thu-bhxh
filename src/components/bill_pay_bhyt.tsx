@@ -7,7 +7,7 @@ import {
   formatDate,
   formatMoneyVND,
   formatPhoneNumber,
-} from "../utils/validateString";
+} from "../utils/validate_string";
 import { createMacFE } from "../services/payment";
 import { EventName, events, Payment } from "zmp-sdk";
 import * as _ from "lodash";

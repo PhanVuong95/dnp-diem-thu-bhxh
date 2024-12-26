@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "zmp-ui";
 import { Province } from "../../models";
 import { registerInfoBHYT } from "./list_health_insurance";
-import { formatMoneyVND, isValidCitizenId, isValidEmail, isValidEmptyString, isValidFullName, isValidHealthInsuranceNumber, isValidPhone, isValidSocialInsuranceNumber } from "../../utils/validateString";
+import { formatMoneyVND, isValidCitizenId, isValidEmail, isValidEmptyString, isValidFullName, isValidHealthInsuranceNumber, isValidPhone, isValidSocialInsuranceNumber } from "../../utils/validate_string";
 import UserBeneficiaryBHYTPage from "../../components/card_user_beneficiary_bhyt";
 import UserBuyerPage from "../../components/card_user_buyer";
 import HeaderBase from "../../components/header_base";

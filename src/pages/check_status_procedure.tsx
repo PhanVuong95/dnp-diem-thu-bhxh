@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
 import HeaderBase from "../components/header_base";
 import { BASE_URL } from "../utils/constants";
-import { formatDate, formatDateByTime, formatTime, formatTime1 } from "../utils/validateString";
+import { formatDate, formatDateByTime, formatTime, formatTime1 } from "../utils/validate_string";
 
 const CheckStatusProcedure = () => {
   const { id } = useParams();
@@ -43,7 +43,7 @@ const CheckStatusProcedure = () => {
       <>
         <HeaderBase
           isHome={false}
-          title={"Thông tin chi tiết"}
+          title={"Kiểm tra trạng thái thủ tục"}
         />
         <div className="fixed inset-0 flex items-center justify-center">
           <PulseLoader size={15} loading={true} color="#0076B7" />

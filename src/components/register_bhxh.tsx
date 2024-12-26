@@ -16,7 +16,7 @@ import {
   isValidEmail,
   isValidEmptyString,
   isValidPhone,
-} from "../utils/validateString";
+} from "../utils/validate_string";
 import { IDetectedBarcode, Scanner } from "@yudiel/react-qr-scanner";
 import { Input, Select, DatePicker, Checkbox, Slider, InputNumber } from "antd";
 import dayjs from "dayjs";

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { FadeLoader } from "react-spinners";
 import { registerInfoBHYT } from "../pages/BHYT/list_health_insurance";
-import { convertListToSelect, convertListToSelectVungLuong, formatDate, formatDate2, formatMoneyVND, formatTimeSql, isValidCitizenId, isValidEmptyString, isValidHealthInsuranceNumber, isValidSocialInsuranceNumber } from "../utils/validateString";
+import { convertListToSelect, convertListToSelectVungLuong, formatDate, formatDate2, formatMoneyVND, formatTimeSql, isValidCitizenId, isValidEmptyString, isValidHealthInsuranceNumber, isValidSocialInsuranceNumber } from "../utils/validate_string";
 import { IDetectedBarcode, Scanner } from '@yudiel/react-qr-scanner';
 import iconClose from '../../assets-src/close_1.png'
 import imageQR from '../../assets-src/icon_qr.png'

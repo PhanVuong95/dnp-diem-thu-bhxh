@@ -88,7 +88,8 @@ const UserPage = () => {
             </div>
           </Link>
 
-          <Link to="/policy-terms" className="flex flex-row shadow-custom p-4 items-center">
+          {/* /policy-terms */}
+          <Link to="/privacy_policy" className="flex flex-row shadow-custom p-4 items-center">
             <img src={ic_policy_terms} className="w-12 h-12" />
             <div className="ml-3 font-normal text-lg">
               Điều kiện và điều khoản dịch vụ

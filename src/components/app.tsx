@@ -41,6 +41,11 @@ import ReportPartnerPage from "../pages/report_partner_page";
 import ListCollabrorates from "../pages/list_collabrorate_page";
 import ProfileCollaborateDetailPage from "../pages/profile_collaborate_detail_page";
 import ScrollToTop from "../utils/hock";
+import ToolSupportPage from "../pages/tool_support_page";
+import WithdrawBHXH from "./withdraw_bhxh";
+import CloseRateBXH from "./close_rate_bhxh";
+import PensionCalculation from "./pension_calculation";
+import CardNewDetailPage from "./card_new_detail_page"
 
 const MyApp = () => {
   useEffect(() => {
@@ -263,6 +268,32 @@ const MyApp = () => {
                     path="/profile-collaborate-detail/:id"
                     element={<ProfileCollaborateDetailPage />}
                   />
+
+                  <Route
+                    path="/tool-support"
+                    element={<ToolSupportPage />}
+                  />
+
+                  {/* Tính toán lương hưu */}
+                  <Route
+                    path="/pension-calculation"
+                    element={<PensionCalculation />}
+                  />
+
+                  {/* Rút BHXH một lần */}
+                  <Route
+                    path="/withdraw-bhxh"
+                    element={<WithdrawBHXH />}
+                  />
+
+                  {/* Mức đóng BHXH còn thiếu */}
+                  <Route
+                    path="/close-rate-bhxh"
+                    element={<CloseRateBXH />}
+                  />
+
+                  {/* Chi tiết tin tức */}
+                  <Route path="new-detail/:id" element={<CardNewDetailPage />} />
                 </Routes>
               </ZMPRouter>
             </SnackbarProvider>

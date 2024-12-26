@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { registerInfoBHYT } from "../pages/BHYT/list_health_insurance";
 import { BASE_URL } from "../utils/constants";
-import { convertListToSelect, convertListToSelectObjectTypeGroup, convertListToSelectObjectTypeGroupList } from "../utils/validateString";
+import { convertListToSelect, convertListToSelectObjectTypeGroup, convertListToSelectObjectTypeGroupList } from "../utils/validate_string";
 
 interface Props {
   refs?: any;

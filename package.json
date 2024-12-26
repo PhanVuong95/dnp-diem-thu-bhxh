@@ -1,8 +1,8 @@
 {
-  "name": "DNP Điểm Thu BHXH",
+  "name": "nộp-bhxh",
   "private": true,
   "version": "1.0.0",
-  "description": "DNP Điểm Thu BHXH",
+  "description": "Nộp BHXH",
   "repository": "",
   "license": "UNLICENSED",
   "browserslist": [
@@ -27,6 +27,7 @@
     "axios": "^1.7.2",
     "crypto-js": "^4.2.0",
     "framer-motion": "^11.3.28",
+    "html-react-parser": "^5.2.1",
     "html2canvas": "^1.4.1",
     "lodash": "^4.17.21",
     "lottie-react": "^2.4.0",

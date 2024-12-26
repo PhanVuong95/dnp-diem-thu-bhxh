@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link, useNavigate } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
-import { formatDate } from "../utils/validateString";
+import { formatDate } from "../utils/validate_string";
 import HeaderBase from "./header_base";
 import { SpecificContext } from "./specific_context";
 import logo from "../../assets-src/logo1.png";

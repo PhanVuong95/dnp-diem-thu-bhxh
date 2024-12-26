@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Avatar, Page } from "zmp-ui";
 import HeaderBase from "../components/header_base";
-import logo from '../../assets-src/logo1.png'
 import wallet from '../../assets-src/image-wallet.png'
-import share from '../../assets-src/image-share.png'
 import money from '../../assets-src/image-money.png'
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
-import { formatMoneyVND } from "../utils/validateString";
+import { formatMoneyVND } from "../utils/validate_string";
 
 type ItemInfoProps = {
   title: string;

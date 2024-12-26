@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "zmp-ui";
-import { formatMoneyVND } from "../utils/validateString";
+import { formatMoneyVND } from "../utils/validate_string";
 import logo from "../../assets-src/logo1.png"
 
 const CardProductBHYT = ({ url, data }) => {

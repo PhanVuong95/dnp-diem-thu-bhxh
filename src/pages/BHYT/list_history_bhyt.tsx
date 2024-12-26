@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import HeaderBase from "../../components/header_base";
 import { PulseLoader } from "react-spinners";
-import { formatMoneyVND } from "../../utils/validateString";
+import { formatMoneyVND } from "../../utils/validate_string";
 import logo from "../../../assets-src/logo1.png"
 import { BASE_URL } from "../../utils/constants";
 

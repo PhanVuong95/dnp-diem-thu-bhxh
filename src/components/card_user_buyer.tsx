@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { registerInfoBHYT } from "../pages/BHYT/list_health_insurance";
 import { Input, Select } from 'antd';
-import { convertListToSelect } from "../utils/validateString";
+import { convertListToSelect } from "../utils/validate_string";
 import { BASE_URL } from "../utils/constants";
 
 interface Props {

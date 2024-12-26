@@ -3,10 +3,7 @@ import { useNavigate } from "react-router";
 import { closeApp, getUserInfo } from "zmp-sdk";
 import { Button, Page, Text } from "zmp-ui";
 import FlexBox from "../../components/FlexBox";
-import { ProfileContext } from "../../components/user_profile_context";
-import { dynamicApiCall } from "../../services/user";
 import { BASE_URL } from "../../utils/constants";
-import useHandleDeeplink from "./useHandleDeeplink";
 
 const LoginPortalPage: React.FunctionComponent = () => {
   const [loading, setLoading] = useState(false);

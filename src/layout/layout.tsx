@@ -5,7 +5,7 @@ import axios from "axios";
 import { authorize, closeApp, getSetting, getUserInfo } from "zmp-sdk/apis";
 import { ProfileContext } from "../components/user_profile_context";
 import { BASE_URL } from "../utils/constants";
-import { isValidString } from "../utils/validateString";
+import { isValidString } from "../utils/validate_string";
 
 export let logged = false;
 

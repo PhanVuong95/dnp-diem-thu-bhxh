@@ -10,7 +10,7 @@ import {
   formatTime,
   isValidEmptyString,
   isValidString,
-} from "../../utils/validateString";
+} from "../../utils/validate_string";
 import { registerInfoBHYT } from "./list_health_insurance";
 import logo from "../../../assets-src/logo1.png";
 

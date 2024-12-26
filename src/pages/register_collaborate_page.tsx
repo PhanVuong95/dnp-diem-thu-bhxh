@@ -4,7 +4,7 @@ import { Page, useNavigate } from "zmp-ui"
 import HeaderBase from "../components/header_base"
 import { BASE_URL, RoleAccount } from "../utils/constants"
 import Modal from 'react-modal';
-import { isValidEmail, isValidEmptyString, isValidPhone } from "../utils/validateString"
+import { isValidEmail, isValidEmptyString, isValidPhone } from "../utils/validate_string"
 import { toast } from "react-toastify"
 import axios from "axios"
 

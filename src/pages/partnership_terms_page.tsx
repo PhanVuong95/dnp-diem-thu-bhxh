@@ -269,12 +269,12 @@ const PartnerTermsPage = () => {
               className="text-[16.7px] font-normal text-[#000] w-[96%] ml-3"
             >
               Tôi đã hiểu và đồng ý
-              <Link to={"/privacy_policy"}>
-                <strong className="text-[#0076B7] font-bold">
-                  {" "}
-                  Chính sách và điều khoản của đối tác
-                </strong>
-              </Link>
+
+              <strong className="text-[#0076B7] font-bold">
+                {" "}
+                Chính sách và điều khoản của đối tác
+              </strong>
+
             </label>
           </div>
           <button

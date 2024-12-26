@@ -5,7 +5,7 @@ import { registerInfoBHYT } from "../pages/BHYT/list_health_insurance";
 import "../locale/vi";
 import locale from "antd/es/date-picker/locale/vi_VN";
 import dayjs from "dayjs";
-import { convertListToSelect, formatDate2 } from "../utils/validateString";
+import { convertListToSelect, formatDate2 } from "../utils/validate_string";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 

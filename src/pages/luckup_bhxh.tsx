@@ -5,7 +5,7 @@ import HeaderBase from "../components/header_base";
 import '../locale/vi';
 import dayjs from 'dayjs';
 import locale from "antd/es/date-picker/locale/vi_VN";
-import { convertListToSelect, formatDate2 } from "../utils/validateString";
+import { convertListToSelect, formatDate2 } from "../utils/validate_string";
 import axios from "axios";
 import { Province } from "../models";
 import { toast } from "react-toastify";

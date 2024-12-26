@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { Page } from "zmp-ui";
 import HeaderBase from "../components/header_base";
 import { BASE_URL } from "../utils/constants";
-import { convertListToSelectBanks } from "../utils/validateString";
+import { convertListToSelectBanks } from "../utils/validate_string";
 
 const BankInfoPage = () => {
 
