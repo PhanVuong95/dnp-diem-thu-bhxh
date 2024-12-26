@@ -1,8 +1,8 @@
 {
-  "name": "nộp-bhxh",
+  "name": "dnp-điểm-thu-bhxh",
   "private": true,
   "version": "1.0.0",
-  "description": "Nộp BHXH",
+  "description": "DNP Điểm Thu BHXH",
   "repository": "",
   "license": "UNLICENSED",
   "browserslist": [

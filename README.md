@@ -1,4 +1,4 @@
-# Nộp BHXH
+# DNP Điểm Thu BHXH
 
 ## ZMP CLI Options
 
@@ -6,8 +6,8 @@ ZMP app created with following options:
 
 ```
 {
-  "cwd": "C:\\Users\\pdvuo\\Desktop\\Zalo-mini-app\\BHXH\\nop-bhxh",
-  "name": "Nộp BHXH",
+  "cwd": "C:\\Users\\pdvuo\\Documents\\dnp-diem-thu-bhxh",
+  "name": "DNP Điểm Thu BHXH",
   "framework": "react-typescript",
   "cssPreProcessor": "css",
   "includeTailwind": true,
