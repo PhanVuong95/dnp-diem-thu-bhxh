@@ -3,10 +3,10 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FadeLoader } from "react-spinners";
 import Modal from 'react-modal';
-import { SpecificContext } from "./specific_context";
+import { SpecificContext } from "../components/specific_context";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
-import HeaderBase from "./header_base";
+import HeaderBase from "../components/header_base";
 import imageQR from "../../assets-src/icon_qr.png";
 import {
   convertListToSelect,
@@ -28,9 +28,9 @@ import { motion } from 'framer-motion';
 import Lottie from "lottie-react";
 import lottieScanQR from "../../assets-src/lottie_scan_qr.json";
 import { BASE_URL, BenefitLevevlList } from "../utils/constants";
-import CardMembersHouseHoldBHXH from "./card_members_house_hold_bhxh";
+import CardMembersHouseHoldBHXH from "../components/card_members_house_hold_bhxh";
 import { openWebview } from "zmp-sdk";
-import AuthorizeAccount from "../pages/auth/authorize";
+import AuthorizeAccount from "./auth/authorize";
 
 dayjs.locale("vi");
 dayjs.extend(customParseFormat);
@@ -4143,7 +4143,7 @@ const RegisterBHXH = (props) => {
       <AuthorizeAccount />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" flex flex-col gap-4 pt-[85px] pb-[85px]"
+        className="flex flex-col gap-4 pt-[85px] pb-[85px]"
       >
         {/* Cập nhật căn cước công dân */}
         {uploadImage()}

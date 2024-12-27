@@ -13,7 +13,7 @@ import ProductDetailPage from "./product_detail";
 import BillPayPage from "./bill_pay";
 import BillPayBHYTPage from "./bill_pay_bhyt";
 import BuillDetailPage from "../pages/bill_detail";
-import RegisterBHXH from "./register_bhxh";
+import RegisterBHXH from "../pages/register_bhxh";
 import ProductDetailPage1 from "./product_detail_1";
 import HistoryUnpaidPage from "./history_unpaid";
 import ListsHistoryPage from "../pages/lists_history_page";
@@ -61,6 +61,8 @@ const MyApp = () => {
       <ProfileProvider>
         <Suspense fallback={<img src={splash} />}>
           <App>
+
+
             <ToastContainer
               style={{
                 width: "80%",
@@ -302,6 +304,7 @@ const MyApp = () => {
                 </Routes>
               </ZMPRouter>
             </SnackbarProvider>
+
           </App>
         </Suspense>
       </ProfileProvider>

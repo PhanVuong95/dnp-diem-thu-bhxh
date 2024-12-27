@@ -241,7 +241,7 @@ const HistoryUnpaidPage: React.FunctionComponent = (props) => {
         onBack={() => navigate("/lists-history")}
         title={"Thông tin chi tiết"}
       />
-      <div className="pt-20 relative">
+      <div className="pt-[90px] pb-[85px] relative">
         {headerStatus()}
 
         <div className="page-1 flex flex-col gap-4 mb-4">

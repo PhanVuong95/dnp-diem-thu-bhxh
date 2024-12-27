@@ -3,6 +3,7 @@
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+  overscroll-behavior: none 
 }
 
 .zaui-routes .zaui-routes-item::-webkit-scrollbar {

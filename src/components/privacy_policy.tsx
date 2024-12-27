@@ -1,18 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import HeaderBase from "./header_base";
-import image1 from '../../assets-src/dieukhoan/image1.jpg'
-import image2 from '../../assets-src/dieukhoan/image2.jpg'
-import image3 from '../../assets-src/dieukhoan/image3.jpg'
-import image4 from '../../assets-src/dieukhoan/image4.jpg'
-import image5 from '../../assets-src/dieukhoan/image5.jpg'
-import image6 from '../../assets-src/dieukhoan/image6.jpg'
-import image7 from '../../assets-src/dieukhoan/image7.jpg'
-import image8 from '../../assets-src/dieukhoan/image8.jpg'
 
 const PrivacyPolicyPage: React.FunctionComponent = (props) => {
 
   return (
-    <div className="pt-20 mb-20">
+    <div className="pt-[80px] pb-[85px]">
       <HeaderBase
         isHome={false}
         title={"Chính sách và điều khoản"}

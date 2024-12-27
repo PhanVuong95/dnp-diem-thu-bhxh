@@ -102,7 +102,7 @@ const ListSocialInsurance = () => {
   }, []);
 
   return (
-    <div className="pt-20 pb-20" >
+    <div className="pt-[90px] pb-[85px]" >
       <HeaderBase isHome={false} title={"BHXH tự nguyện"} />
       <div className="flex flex-col gap-[16px] px-4 py-[15px]">
         <div className="flex flex-col gap-8">

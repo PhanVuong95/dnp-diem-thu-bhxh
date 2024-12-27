@@ -96,7 +96,7 @@ const BillPayPage: React.FC<Widthheight> = ({ url }) => {
     <>
       <HeaderBase isHome={false} title={"Đăng ký BHXH Tự nguyện"} />
       <AuthorizeAccount />
-      <div className=" !pt-[95px] page-1 flex flex-col gap-4 mb-4 pb-[85px]">
+      <div className="!pt-[95px] page-1 flex flex-col gap-4 mb-4 pb-[85px]">
         <div className="p-4 bg-white rounded-xl flex flex-col gap-6">
           <h3 className="text-base font-medium text-[#0076B7]">
             Người mua bảo hiểm
@@ -349,15 +349,14 @@ const BillPayPage: React.FC<Widthheight> = ({ url }) => {
             </h3>
           </div>
           <div className="flex flex-row content-center justify-center items-center">
-            <Link
+            <button
               onClick={() => {
                 createOrder();
               }}
-              // to={"/buill-detail/" + insuranceOrder.id}
-              className="px-[24px] py-3 bg-[#0076B7] w-full rounded-full bg-[#0076B7] text-base font-normal text-white text-center"
+              className="px-[24px] py-3 bg-[#0076B7] w-full rounded-full text-base font-normal text-white text-center"
             >
               Tiếp tục
-            </Link>
+            </button>
           </div>
         </div>
       </div>

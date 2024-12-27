@@ -542,7 +542,7 @@ const InfoDetailBHYT: React.FunctionComponent = () => {
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-[90px] pb-[85px]">
       <HeaderBase
         isHome={false}
         title={"Thông tin chi tiết"}

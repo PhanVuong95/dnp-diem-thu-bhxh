@@ -396,7 +396,7 @@ const HomePage: React.FunctionComponent = () => {
           >
             {posts.length > 0 ? (
               posts.map((post, index) => (
-                <SwiperSlide>
+                <SwiperSlide key={`SwiperSlide${index}`}>
                   <CardNewPage post={post} index={index + 1} />
                 </SwiperSlide>
               ))

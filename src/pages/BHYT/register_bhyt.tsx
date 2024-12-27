@@ -1141,7 +1141,7 @@ const RegisterBHYT = ({ }) => {
   }
 
   return (
-    <div className="pt-20 pb-[85px]">
+    <div className="pt-[85px] pb-[80px]">
       {renderHeader()}
       <AuthorizeAccount />
       <div className="page-1 flex flex-col gap-4">

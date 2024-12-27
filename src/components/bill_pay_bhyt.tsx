@@ -285,7 +285,7 @@ const BillPayBHYTPage: React.FunctionComponent = () => {
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-[90px] pb-[85px]">
       <HeaderBase isHome={false} title={"BHYT tự nguyện"} />
       <div className="page-1 flex flex-col gap-4 mb-4">
         <div className="">
