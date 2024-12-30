@@ -11,6 +11,7 @@ import ic_zalo from "../../assets-src/image-zalo.png";
 import { Link } from "react-router-dom";
 import { RoleAccount } from "../utils/constants";
 import { openProfile } from "zmp-sdk";
+import HeaderPage from "../components/header_page";
 
 const UserPage = () => {
 
@@ -79,7 +80,9 @@ const UserPage = () => {
 
 
         </div>
+        <HeaderPage />
       </Page>
+
     </div>
 
   );

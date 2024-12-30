@@ -4,7 +4,7 @@ import HeaderBase from "./header_base";
 const PrivacyPolicyPage: React.FunctionComponent = (props) => {
 
   return (
-    <div className="pt-[80px] pb-[85px]">
+    <div className="pt-[90px]">
       <HeaderBase
         isHome={false}
         title={"Chính sách và điều khoản"}

@@ -241,7 +241,7 @@ const HistoryUnpaidPage: React.FunctionComponent = (props) => {
         onBack={() => navigate("/lists-history")}
         title={"Thông tin chi tiết"}
       />
-      <div className="pt-[90px] pb-[85px] relative">
+      <div className="pt-[90px]">
         {headerStatus()}
 
         <div className="page-1 flex flex-col gap-4 mb-4">
@@ -508,8 +508,6 @@ const HistoryUnpaidPage: React.FunctionComponent = (props) => {
                   <p className="text-[#646464] text-sm font-normal">
                     Ngày đăng ký
                   </p>
-
-
                 </div>
                 <div>
                   <p className="text-[#2E2E2E] text-sm font-semibold max-w-[180px] text-right">
@@ -540,7 +538,6 @@ const HistoryUnpaidPage: React.FunctionComponent = (props) => {
                   Tái hợp đồng bảo hiểm
                 </button>
               </div>
-
             ) : (<div className="mb-32"></div>)
           }
 

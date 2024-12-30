@@ -285,7 +285,7 @@ const BillPayBHYTPage: React.FunctionComponent = () => {
   };
 
   return (
-    <div className="pt-[90px] pb-[85px]">
+    <div className="pt-[90px]">
       <HeaderBase isHome={false} title={"BHYT tự nguyện"} />
       <div className="page-1 flex flex-col gap-4 mb-4">
         <div className="">
@@ -388,15 +388,14 @@ const BillPayBHYTPage: React.FunctionComponent = () => {
             </h3>
           </div>
           <div className="flex flex-row content-center justify-center items-center">
-            <Link
+            <button
               onClick={() => {
                 createOrder();
               }}
-              // to={`/buill-detail/${id}`}
               className="px-[20px] py-3 bg-[#0076B7] w-full rounded-full bg-[#0076B7] text-base font-normal text-white text-center"
             >
               Tiếp tục
-            </Link>
+            </button>
           </div>
         </div>
       </div>

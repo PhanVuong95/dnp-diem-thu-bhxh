@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import HeaderBase from "../components/header_base";
+import HeaderPage from "../components/header_page";
 import AuthorizeAccount from "./auth/authorize";
 
 const HistoryPage: React.FunctionComponent = (props) => {
@@ -141,7 +142,9 @@ const HistoryPage: React.FunctionComponent = (props) => {
             </div>
           </div>
         </Link>
+        <HeaderPage />
       </div>
+
     </>
   );
 };

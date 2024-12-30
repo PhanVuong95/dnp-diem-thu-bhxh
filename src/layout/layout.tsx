@@ -58,7 +58,6 @@ const LayoutPage: React.FunctionComponent = (props) => {
             }
           `}
         </style>
-        <HeaderPage />
         <main>
           <Outlet />
         </main>

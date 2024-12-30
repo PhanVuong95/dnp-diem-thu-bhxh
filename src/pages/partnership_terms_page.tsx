@@ -94,14 +94,14 @@ const PartnerTermsPage = () => {
   }
 
   return (
-    <div>
+    <div className="pt-[80px]">
       <HeaderBase
         isHome={false}
         title="Điều khoản đối tác"
       />
       <AuthorizeAccount />
-      <Page className="page mt-20">
-        <div className="rounded-lg no-scrollbar bg-white p-4 text-justify overflow-scroll" style={{ height: '70vh' }}>
+      <Page className="page ">
+        <div className="rounded-lg no-scrollbar bg-white p-4 text-justify overflow-scroll" style={{ height: '80vh' }}>
           <p className="text-center"><strong>Điều khoản &amp; Điều kiện </strong>
           </p>
           <p className="text-center mt-2"><strong>CHƯƠNG TRÌNH TIẾP THỊ LIÊN KẾT BẢO HIỂM VIỆT DNP</strong>

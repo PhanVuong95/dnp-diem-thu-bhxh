@@ -264,7 +264,7 @@ const CheckStatusProcedure = () => {
     <div>
       <HeaderBase isHome={false} title={"Thông tin chi tiết"} />
 
-      <div className="pt-[90px] pb-[85px]">
+      <div className="pt-[90px]">
         <div className="bg-white pb-1">
           {headerContent()}
 

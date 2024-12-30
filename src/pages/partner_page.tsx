@@ -6,6 +6,7 @@ import ic_introduce from "../../assets-src/image-introduce.png";
 import ic_prerson from "../../assets-src/image-person.png";
 import ic_guide from "../../assets-src/image-guide.png";
 import AuthorizeAccount from "./auth/authorize";
+import HeaderPage from "../components/header_page";
 
 const PartnerPage = () => {
   return (
@@ -39,6 +40,7 @@ const PartnerPage = () => {
           </Link>
         </div>
       </Page>
+      <HeaderPage />
     </div>
   )
 }

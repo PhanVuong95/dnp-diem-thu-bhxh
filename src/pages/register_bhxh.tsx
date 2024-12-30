@@ -4143,7 +4143,7 @@ const RegisterBHXH = (props) => {
       <AuthorizeAccount />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-4 pt-[85px] pb-[85px]"
+        className="flex flex-col gap-4 pt-[85px] "
       >
         {/* Cập nhật căn cước công dân */}
         {uploadImage()}

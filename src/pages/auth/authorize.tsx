@@ -9,64 +9,67 @@ import { formatPhoneNumberZalo } from "../../utils/validate_string";
 const AuthorizeAccount = () => {
   const { setUserProfile } = useProfile();
 
-
   const getInfo = async () => {
-    const user = await getUserInfo({
-      avatarType: "normal",
-    });
+    try {
+      const user = await getUserInfo({
+        avatarType: "normal",
+      });
 
-    getAccessToken({
-      success: (accessToken) => {
-        getPhoneNumber({
-          success: async (data) => {
-            let { token } = data;
-            fetch("https://graph.zalo.me/v2.0/me/info", {
-              method: "GET",
-              headers: {
-                "access_token": `${accessToken}`,
-                "code": `${token}`,
-                "secret_key": "V0fd7v8rB0KUS344WF69"
-              }
-            })
-              .then(response => response.json())
-              .then(data => {
-
-                const dataFrom = {
-                  Username: user?.userInfo.id,
-                  fullName: user?.userInfo.name,
-                  photo: user?.userInfo.avatar,
-                  phone: formatPhoneNumberZalo(data.data.number),
+      getAccessToken({
+        success: (accessToken) => {
+          getPhoneNumber({
+            success: async (data) => {
+              let { token } = data;
+              fetch("https://graph.zalo.me/v2.0/me/info", {
+                method: "GET",
+                headers: {
+                  "access_token": `${accessToken}`,
+                  "code": `${token}`,
+                  "secret_key": "V0fd7v8rB0KUS344WF69"
                 }
-
-                // Lưu thông tin profile vào context
-                setUserProfile(dataFrom);
-
-                // Đăng nhập + đăng ký tài khoản
-                loginAccount(dataFrom)
               })
-              .catch(error => {
-                console.error("Error:", error);
-              });
+                .then(response => response.json())
+                .then(data => {
 
-          },
-          fail: (error) => {
-            toast.error("Lấy thông tin số điện thoại thất bại")
-            // Xử lý khi gọi api thất bại
-            console.log("Get PhoneNumber", error);
-          }
-        });
-      },
-      fail: (error) => {
-        // xử lý khi gọi api thất bại
-        console.log("Get Access", error);
-      }
-    });
+                  const dataFrom = {
+                    Username: user?.userInfo.id,
+                    fullName: user?.userInfo.name,
+                    photo: user?.userInfo.avatar,
+                    phone: formatPhoneNumberZalo(data.data.number),
+                  }
+
+                  // Lưu thông tin profile vào context
+                  setUserProfile(dataFrom);
+
+                  // Đăng nhập + đăng ký tài khoản
+                  loginAccount(dataFrom)
+                })
+                .catch(error => {
+                  console.error("Error:", error);
+                });
+
+            },
+            fail: (error) => {
+              toast.error("Lấy thông tin số điện thoại thất bại")
+              // Xử lý khi gọi api thất bại
+              console.log("Get PhoneNumber", error);
+            }
+          });
+        },
+        fail: (error) => {
+          // xử lý khi gọi api thất bại
+          console.log("Get Access", error);
+        }
+      });
+    } catch (error) {
+
+    }
+
   }
 
   const loadUserInfo = async () => {
     try {
       const setting = await getSetting({});
-      console.log("setting", setting);
       if (!setting["authSetting"]["scope.userInfo"] ||
         !setting["authSetting"]["scope.userPhonenumber"]
       ) {
@@ -86,7 +89,7 @@ const AuthorizeAccount = () => {
 
     } catch (error) {
       console.log("setting", error)
-      toast.error("Vui lòng cấp quyền để sử dụng thông tin")
+      // toast.error("Vui lòng cấp quyền để sử dụng thông tin")
 
     }
   }
