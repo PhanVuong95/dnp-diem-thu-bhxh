@@ -41,9 +41,6 @@ const LayoutPage: React.FunctionComponent = (props) => {
     localStorage.setItem("referrerCode", referrerCode);
   }
 
-
-
-
   useEffect(() => {
     const scrollContainer = containerRef.current;
     if (scrollContainer) {
@@ -53,21 +50,22 @@ const LayoutPage: React.FunctionComponent = (props) => {
 
   return (
     <div ref={containerRef} style={{ overflow: 'scroll', height: '100vh', }}>
-      <style>
-        {`
-          div::-webkit-scrollbar {
-            display: none;
-          }
-        `}
-      </style>
-      <HeaderPage />
-      <main>
-        <Outlet />
-      </main>
-      <footer></footer>
-
+      <div>
+        <style>
+          {`
+            div::-webkit-scrollbar {
+              display: none;
+            }
+          `}
+        </style>
+        <HeaderPage />
+        <main>
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 };
 
 export default LayoutPage;
+

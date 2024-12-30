@@ -1,36 +1,93 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { authorize, getSetting, getUserInfo } from "zmp-sdk";
-import { useProfile, UserProfilePros } from "../../components/user_profile_context";
+import { toast } from "react-toastify";
+import { authorize, getAccessToken, getPhoneNumber, getSetting, getUserInfo } from "zmp-sdk";
+import { useProfile } from "../../components/user_profile_context";
 import { BASE_URL } from "../../utils/constants";
+import { formatPhoneNumberZalo } from "../../utils/validate_string";
 
 const AuthorizeAccount = () => {
-  const { userProfile, setUserProfile } = useProfile();
+  const { setUserProfile } = useProfile();
+
+
+  const getInfo = async () => {
+    const user = await getUserInfo({
+      avatarType: "normal",
+    });
+
+    getAccessToken({
+      success: (accessToken) => {
+        getPhoneNumber({
+          success: async (data) => {
+            let { token } = data;
+            fetch("https://graph.zalo.me/v2.0/me/info", {
+              method: "GET",
+              headers: {
+                "access_token": `${accessToken}`,
+                "code": `${token}`,
+                "secret_key": "V0fd7v8rB0KUS344WF69"
+              }
+            })
+              .then(response => response.json())
+              .then(data => {
+
+                const dataFrom = {
+                  Username: user?.userInfo.id,
+                  fullName: user?.userInfo.name,
+                  photo: user?.userInfo.avatar,
+                  phone: formatPhoneNumberZalo(data.data.number),
+                }
+
+                // Lưu thông tin profile vào context
+                setUserProfile(dataFrom);
+
+                // Đăng nhập + đăng ký tài khoản
+                loginAccount(dataFrom)
+              })
+              .catch(error => {
+                console.error("Error:", error);
+              });
+
+          },
+          fail: (error) => {
+            toast.error("Lấy thông tin số điện thoại thất bại")
+            // Xử lý khi gọi api thất bại
+            console.log("Get PhoneNumber", error);
+          }
+        });
+      },
+      fail: (error) => {
+        // xử lý khi gọi api thất bại
+        console.log("Get Access", error);
+      }
+    });
+  }
 
   const loadUserInfo = async () => {
     try {
       const setting = await getSetting({});
-      if (!setting["authSetting"]["scope.userInfo"]) {
-        const auth = await authorize({ scopes: ["scope.userInfo"] })
+      console.log("setting", setting);
+      if (!setting["authSetting"]["scope.userInfo"] ||
+        !setting["authSetting"]["scope.userPhonenumber"]
+      ) {
 
-        if (auth["scope.userInfo"]) {
-          const user = await getUserInfo({
-            avatarType: "normal",
-          });
+        const auth = await authorize({ scopes: ["scope.userInfo", "scope.userPhonenumber"] })
 
-          //Cập nhập profile context 
-          setUserProfile((prev) => {
-            return {
-              ...(prev as UserProfilePros),
-              Username: user.userInfo.id,
-              fullName: user.userInfo.name,
-              photo: user.userInfo.avatar
-            };
-          });
+        if (auth["scope.userInfo"] && auth["scope.userPhonenumber"]) {
+          getInfo()
+          return
+        } else {
+          toast.error("Vui lòng cấp quyền để sử dụng thông tin")
+          return
         }
       }
+
+      getInfo()
+
     } catch (error) {
-      console.log("Chưa cấp được quyền thông tin")
+      console.log("setting", error)
+      toast.error("Vui lòng cấp quyền để sử dụng thông tin")
+
     }
   }
 
@@ -38,31 +95,16 @@ const AuthorizeAccount = () => {
     loadUserInfo()
   }, []);
 
-  const loginAccount = async () => {
+  const loginAccount = async (dataFrom) => {
     try {
-
-      // Lấy thông tin tài khoản zalo
-      const user = await getUserInfo({
-        avatarType: "normal",
-      });
-
-      //Cập nhập profile context 
-      setUserProfile((prev) => {
-        return {
-          ...(prev as UserProfilePros),
-          Username: user.userInfo.id,
-          fullName: user.userInfo.name,
-          photo: user.userInfo.avatar
-        };
-      });
-
       // Đăng nhập tài khoản để lấy token
       const { data } = await axios.post(
         `${BASE_URL}/account/api/login-mini-app`,
         {
-          Username: user.userInfo.id,
-          fullName: user.userInfo.name,
-          photo: user.userInfo.avatar
+          Username: dataFrom.Username,
+          fullName: dataFrom.fullName,
+          photo: dataFrom.photo,
+          phone: dataFrom.phone
         }
       );
 
@@ -79,11 +121,6 @@ const AuthorizeAccount = () => {
       console.error("Login failed:", error);
     }
   }
-
-
-  useEffect(() => {
-    loginAccount()
-  }, [userProfile != null])
 
   return null
 }

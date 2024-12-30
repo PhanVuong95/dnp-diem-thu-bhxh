@@ -270,3 +270,10 @@ export const convertListToSelectObjectTypeGroup = (data) => {
   });
   return list
 }
+
+export const formatPhoneNumberZalo = (input: string): string => {
+  if (input.length >= 2) {
+    return '0' + input.slice(2);
+  }
+  return input;
+}

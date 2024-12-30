@@ -61,8 +61,6 @@ const MyApp = () => {
       <ProfileProvider>
         <Suspense fallback={<img src={splash} />}>
           <App>
-
-
             <ToastContainer
               style={{
                 width: "80%",

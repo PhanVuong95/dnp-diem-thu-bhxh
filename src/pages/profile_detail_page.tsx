@@ -16,57 +16,56 @@ const ProfileDetailPage = () => {
   const { userProfile, setUserProfile } = useProfile();
   const [phone, setPhone] = useState<String>("");
 
-  const loadPhone = async () => {
-    getAccessToken({
-      success: (accessToken) => {
-        getPhoneNumber({
-          success: async (data) => {
-            console.log("token", data);
-            let { token } = data;
-            fetch("https://graph.zalo.me/v2.0/me/info", {
-              method: "GET",
-              headers: {
-                "access_token": `${accessToken}`,
-                "code": `${token}`,
-                "secret_key": "V0fd7v8rB0KUS344WF69"
-              }
-            })
-              .then(response => response.json())
-              .then(data => {
-                setPhone(data.data.number)
+  // const loadPhone = async () => {
+  //   getAccessToken({
+  //     success: (accessToken) => {
+  //       getPhoneNumber({
+  //         success: async (data) => {
+  //           let { token } = data;
+  //           fetch("https://graph.zalo.me/v2.0/me/info", {
+  //             method: "GET",
+  //             headers: {
+  //               "access_token": `${accessToken}`,
+  //               "code": `${token}`,
+  //               "secret_key": "V0fd7v8rB0KUS344WF69"
+  //             }
+  //           })
+  //             .then(response => response.json())
+  //             .then(data => {
+  //               setPhone(data.data.number)
 
-                setUserProfile((user) => {
-                  return {
-                    Username: user?.Username ?? undefined,
-                    fullName: user?.fullName ?? undefined,
-                    photo: user?.photo ?? undefined,
-                    phone: `${data.data.number}`,
-                  };
-                });
+  //               setUserProfile((user) => {
+  //                 return {
+  //                   Username: user?.Username ?? undefined,
+  //                   fullName: user?.fullName ?? undefined,
+  //                   photo: user?.photo ?? undefined,
+  //                   phone: `${data.data.number}`,
+  //                 };
+  //               });
 
 
-              })
-              .catch(error => {
-                console.error("Error:", error);
-              });
+  //             })
+  //             .catch(error => {
+  //               console.error("Error:", error);
+  //             });
 
-          },
-          fail: (error) => {
-            // Xử lý khi gọi api thất bại
-            console.log("Get PhoneNumber", error);
-          }
-        });
-      },
-      fail: (error) => {
-        // xử lý khi gọi api thất bại
-        console.log("Get Access", error);
-      }
-    });
-  }
+  //         },
+  //         fail: (error) => {
+  //           // Xử lý khi gọi api thất bại
+  //           console.log("Get PhoneNumber", error);
+  //         }
+  //       });
+  //     },
+  //     fail: (error) => {
+  //       // xử lý khi gọi api thất bại
+  //       console.log("Get Access", error);
+  //     }
+  //   });
+  // }
 
-  useEffect(() => {
-    loadPhone()
-  }, [])
+  // useEffect(() => {
+  //   loadPhone()
+  // }, [])
 
 
   return (
