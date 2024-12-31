@@ -3974,7 +3974,7 @@ const RegisterBHXH = (props) => {
           ariaHideApp={false}
           contentLabel="QR Code"
         >
-          <div className="w-[400px] h-[750px] relative">
+          <div className="w-[500px] h-[850px] relative">
             <div className="text-[#fff] z-10  w-[100%] text-center justify-items-center underline italic ">
               Quét QR trên CCCD của bạn
             </div>

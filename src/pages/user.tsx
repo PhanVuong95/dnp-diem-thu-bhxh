@@ -77,12 +77,9 @@ const UserPage = () => {
               Chat với chúng tôi
             </div>
           </div>
-
-
         </div>
-        <HeaderPage />
       </Page>
-
+      <HeaderPage />
     </div>
 
   );

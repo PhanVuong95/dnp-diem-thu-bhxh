@@ -265,43 +265,10 @@ const BillPayPage: React.FC<Widthheight> = ({ url }) => {
           </div>
         </div>
         <div className="p-4 bg-white rounded-xl flex flex-col gap-4">
-          {/* <h3 className="text-[#0076B7] text-lg font-medium">
-            Danh mục sản phẩm
-          </h3>
-          <div className="flex gap-[10px]">
-            <img src="https://dion.vn/wp-content/uploads/2024/07/image-1004.png" />
-            <div className="title-product flex flex-col">
-              <h3 className="text-[#0076B7] text-lg font-medium">
-                BH Xã Hội Tự nguyện
-              </h3>
-              <p className="text-[#646464] text-sm font-normal">Theo tháng</p>
-              <span className="text-[#0076B7] text-lg font-bold">
-                22<samp className="text-[#646464] text-sm font-normal">%</samp>
-              </span>
-            </div>
-          </div> */}
-
-          {/* <hr className="border-dashed border-[1px] text-[#DEE7FE] "></hr> */}
-
           <div className="flex flex-col gap-2">
             <h3 className="text-[#0076B7] text-lg font-medium">
               Phương thức thanh toán
             </h3>
-            {/* <div className="flex gap-3">
-              <input
-                type="checkbox"
-                className="relative appearance-none bg-white w-5 h-5 border rounded-full border-red-400 cursor-pointer checked:bg-[#0076B7]"
-                checked={selectedCheckbox === "vietqr"}
-                onChange={() => handleCheckboxChange("vietqr")}
-                id="vietqr-checkbox"
-              />
-              <label
-                htmlFor="vietqr-checkbox"
-                className="text-sm font-normal text-[#000] w-[96%]"
-              >
-                VietQR (Chuyển khoản ngân hàng, MOMO, Zalopay, Viettelpay)
-              </label>
-            </div> */}
 
             <div className="flex gap-3">
               <input
@@ -318,22 +285,6 @@ const BillPayPage: React.FC<Widthheight> = ({ url }) => {
                 Thanh toán VNPAY (Powered ChaiPay)
               </label>
             </div>
-
-            {/* <div className="flex gap-3">
-              <input
-                type="checkbox"
-                className="relative appearance-none bg-white w-5 h-5 border rounded-full border-red-400 cursor-pointer checked:bg-[#0076B7]"
-                checked={selectedCheckbox === "khac"}
-                onChange={() => handleCheckboxChange("khac")}
-                id="khac-checkbox"
-              />
-              <label
-                htmlFor="khac-checkbox"
-                className="text-sm font-normal text-[#000] w-[96%]"
-              >
-                Khác
-              </label>
-            </div> */}
           </div>
         </div>
       </div>

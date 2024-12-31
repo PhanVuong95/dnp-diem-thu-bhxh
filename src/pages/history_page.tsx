@@ -142,9 +142,9 @@ const HistoryPage: React.FunctionComponent = (props) => {
             </div>
           </div>
         </Link>
-        <HeaderPage />
-      </div>
 
+      </div>
+      <HeaderPage />
     </>
   );
 };
