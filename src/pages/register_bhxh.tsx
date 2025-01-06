@@ -217,8 +217,8 @@ const RegisterBHXH = (props) => {
     buyerAddressDetail: useRef<any>(null),
   }
 
-  const [isHadBHXH, setIsHadBHXH] = useState(false);
-
+  const [isNotHaveBHXH, setIsNoteHaveBHXH] = useState(false);
+  const [isSameBirthAddress, setIsSameBirthAddress] = useState(false);
 
   // Load lại tất cả danh sách tỉnh thành
   useEffect(() => {
@@ -601,7 +601,7 @@ const RegisterBHXH = (props) => {
             insuranceOrder.houseHold.soGiayToCaNhan = ""
           }
 
-          setIsHadBHXH(insuranceOrder.houseHold.soGiayToCaNhan == "" ? true : false)
+          setIsNoteHaveBHXH(insuranceOrder.houseHold.soGiayToCaNhan == "" ? true : false)
 
           // Người tham gia
           setPersonName(insuranceOrder.listInsuredPerson[0].fullName);
@@ -973,7 +973,7 @@ const RegisterBHXH = (props) => {
     }
 
     // Người tham gia có mã BHXH
-    if (isHadBHXH) {
+    if (isNotHaveBHXH) {
       if (
         !(
           socialInsuranceId.length == 0 ||
@@ -3131,6 +3131,75 @@ const RegisterBHXH = (props) => {
     )
   }
 
+  const checkBoxSameBirthAddress = () => {
+    return (
+      <Checkbox
+        checked={isSameBirthAddress}
+        onChange={() => {
+          if (!isSameBirthAddress) {
+            ttProvinces.current = ksProvinces.current;
+            ttDistricts.current = ksDistricts.current;
+            ttWards.current = ksWards.current;
+
+            setSelectedTTProvince(selectedKSProvince);
+            setSelectedTTDistrict(selectedKSDistrict);
+            setSelectedTTWard(selectedKSWard);
+            setTTAddressDetail(ksAddressDetail);
+
+            // Set vào provider
+            setInsuranceOrder((prevOrder: any) => ({
+              ...prevOrder,
+              listInsuredPerson: prevOrder.listInsuredPerson.map(
+                (person: any, index: any) =>
+                  index === 0
+                    ? {
+                      ...person,
+                      provinceId: selectedKSProvince,
+                      districtId: selectedKSDistrict,
+                      wardId: selectedKSWard,
+                      addressDetail: ksAddressDetail,
+                    }
+                    : person
+              ),
+            }));
+          } else {
+            // reset Field
+            ttProvinces.current = [];
+            ttDistricts.current = [];
+            ttWards.current = [];
+
+            setSelectedTTProvince(0);
+            setSelectedTTDistrict(0);
+            setSelectedTTWard(0);
+            setTTAddressDetail("");
+
+            // Set vào provider
+            setInsuranceOrder((prevOrder: any) => ({
+              ...prevOrder,
+              listInsuredPerson: prevOrder.listInsuredPerson.map(
+                (person: any, index: any) =>
+                  index === 0
+                    ? {
+                      ...person,
+                      provinceId: 0,
+                      districtId: 0,
+                      wardId: 0,
+                      addressDetail: "",
+                    }
+                    : person
+              ),
+            }));
+          }
+
+          setIsSameBirthAddress(!isSameBirthAddress);
+        }}
+        className="w-full"
+      >
+        <div className="font-normal text-base">Giống địa chỉ khai sinh</div>
+      </Checkbox>
+    );
+  };
+
   const infoParticipants = () => {
     return (
       <div className="p-4 mx-4 bg-white rounded-xl flex flex-col gap-6">
@@ -3182,8 +3251,11 @@ const RegisterBHXH = (props) => {
           {inputKSAddrestailParticipants()}
 
           <h3 className="text-base font-semibold text-[#0076B7]">
-            Địa chỉ thường trú{" "}
+            Địa chỉ thường trú
           </h3>
+
+          {/* Checkbox */}
+          {checkBoxSameBirthAddress()}
 
           {/* Tỉnh thành */}
           {inputTTProvinceParticipants()}
@@ -3201,9 +3273,9 @@ const RegisterBHXH = (props) => {
 
 
           <Checkbox
-            checked={isHadBHXH}
+            checked={isNotHaveBHXH}
             onChange={(e) => {
-              if (isHadBHXH) {
+              if (isNotHaveBHXH) {
                 setSocialInsuranceId("")
 
                 setInsuranceOrder((prevOrder) => ({
@@ -3252,17 +3324,17 @@ const RegisterBHXH = (props) => {
               }
 
 
-              setIsHadBHXH(!isHadBHXH)
+              setIsNoteHaveBHXH(!isNotHaveBHXH)
 
             }}>
-            <div className="font-normal text-base">Người tham gia có mã BHXH</div>
+            <div className="font-normal text-base">Bạn chưa có bảo hiểm xã hội</div>
           </Checkbox>
 
           {/* Số BHXH */}
-          {isHadBHXH && inputBHXHParticipants()}
+          {!isNotHaveBHXH && inputBHXHParticipants()}
 
 
-          {!isHadBHXH && (
+          {isNotHaveBHXH && (
             <div className="flex flex-col gap-6">
               <h3 className="text-base font-semibold text-[#0076B7]">
                 Thông tin hộ gia đình{" "}

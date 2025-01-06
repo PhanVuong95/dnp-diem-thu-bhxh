@@ -6,7 +6,7 @@ import { convertListToSelect, convertListToSelectVungLuong, formatDate, formatDa
 import { IDetectedBarcode, Scanner } from '@yudiel/react-qr-scanner';
 import iconClose from '../../assets-src/close_1.png'
 import imageQR from '../../assets-src/icon_qr.png'
-import { Input, Select, DatePicker } from 'antd';
+import { Input, Select, DatePicker, Checkbox } from 'antd';
 import dayjs from 'dayjs';
 import '../locale/vi';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
@@ -129,6 +129,8 @@ const UserBeneficiaryBHYTPage = (props: Props) => {
         return `${formatMoneyVND(price * 0.4)} đ`
     }
   }
+
+  const [isSameBirthAddress, setIsSameBirthAddress] = useState(false);
 
   // Load lại tất cả danh sách tỉnh thành
   useEffect(() => {
@@ -1776,18 +1778,66 @@ const UserBeneficiaryBHYTPage = (props: Props) => {
     )
   }
 
+  const checkBoxSameBirthAddress = () => {
+    return (
+      <Checkbox
+        checked={isSameBirthAddress}
+        onChange={() => {
+          if (!isSameBirthAddress) {
+            ttProvinces.current = ksProvinces.current;
+            ttDistricts.current = ksDistricts.current;
+            ttWards.current = ksWards.current;
+
+            setSelectedTTProvince(selectedKSProvince);
+            setSelectedTTDistrict(selectedKSDistrict);
+            setSelectedTTWard(selectedKSWard);
+            setTTAddressDetail(ksAddressDetail);
+
+            registerInfoBHYT["listInsuredPerson"][index].provinceId =
+              selectedKSProvince;
+            registerInfoBHYT["listInsuredPerson"][index].districtId =
+              selectedKSDistrict;
+            registerInfoBHYT["listInsuredPerson"][index].wardId =
+              selectedKSWard;
+            registerInfoBHYT["listInsuredPerson"][index].addressDetail =
+              ksAddressDetail;
+          } else {
+            // reset Field
+            ttProvinces.current = [];
+            ttDistricts.current = [];
+            ttWards.current = [];
+
+            setSelectedTTProvince(0);
+            setSelectedTTDistrict(0);
+            setSelectedTTWard(0);
+            setTTAddressDetail("");
+          }
+
+          setIsSameBirthAddress(!isSameBirthAddress);
+
+          registerInfoBHYT["listInsuredPerson"][index].provinceId = 0;
+          registerInfoBHYT["listInsuredPerson"][index].districtId = 0;
+          registerInfoBHYT["listInsuredPerson"][index].wardId = 0;
+          registerInfoBHYT["listInsuredPerson"][index].addressDetail = "";
+        }}
+        className="w-full"
+      >
+        <div className="font-normal text-base">Giống địa chỉ khai sinh</div>
+      </Checkbox>
+    );
+  };
+
+
   return (
     <div className="p-4 bg-white rounded-xl flex flex-col gap-4">
       {renderHeader()}
       {/* Tiền bảo hiểm */}
       {renderPrice()}
 
-
-
       {renderLine()}
 
       {/* Note */}
-      {renderNote()}
+      {/* {renderNote()} */}
 
       {/* CCCD */}
       {renderCitizenId()}
@@ -1858,8 +1908,11 @@ const UserBeneficiaryBHYTPage = (props: Props) => {
       {inputKSAddrestailParticipants()}
 
       <h3 className="text-base font-semibold text-[#0076B7]">
-        Địa chỉ thường trú{" "}
+        Địa chỉ thường trú
       </h3>
+
+      {/* Check box*/}
+      {checkBoxSameBirthAddress()}
 
       {/* Tỉnh thành thường trú*/}
       {inputTTProvinceParticipants()}
