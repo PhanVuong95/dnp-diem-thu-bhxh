@@ -973,7 +973,7 @@ const RegisterBHXH = (props) => {
     }
 
     // Người tham gia có mã BHXH
-    if (isNotHaveBHXH) {
+    if (!isNotHaveBHXH) {
       if (
         !(
           socialInsuranceId.length == 0 ||
